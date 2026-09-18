@@ -7,7 +7,7 @@ function Navbar() {
 
         {/* Logo */}
         <Link to="/" className="logo">
-          E-Shop
+          Multi-Tenant Ecommerce <br></br>Platform
         </Link>
 
         {/* Navigation Links */}

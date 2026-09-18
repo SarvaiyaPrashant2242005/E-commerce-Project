@@ -6,271 +6,210 @@ const products = [
     id: 1,
     name: "Wireless Headphones",
     category: "Electronics",
-    price: 1999,
-    image:
-      "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=80",
+    price: "₹1,999",
+    oldPrice: "₹2,999",
+    emoji: "🎧",
+    tag: "BESTSELLER",
   },
   {
     id: 2,
     name: "Classic Sneakers",
     category: "Fashion",
-    price: 2499,
-    image:
-      "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=600&q=80",
+    price: "₹2,499",
+    oldPrice: "₹3,499",
+    emoji: "👟",
+    tag: "TRENDING",
   },
   {
     id: 3,
     name: "Smart Watch",
-    category: "Electronics",
-    price: 3299,
-    image:
-      "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=80",
+    category: "Accessories",
+    price: "₹3,499",
+    oldPrice: "₹4,999",
+    emoji: "⌚",
+    tag: "NEW",
   },
   {
     id: 4,
-    name: "Stylish Backpack",
-    category: "Accessories",
-    price: 1499,
-    image:
-      "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=600&q=80",
+    name: "Everyday Backpack",
+    category: "Lifestyle",
+    price: "₹1,299",
+    oldPrice: "₹1,799",
+    emoji: "🎒",
+    tag: "POPULAR",
   },
 ];
 
 const categories = [
-  "All",
-  "Electronics",
-  "Fashion",
-  "Accessories",
+  { name: "Electronics", emoji: "📱" },
+  { name: "Fashion", emoji: "👕" },
+  { name: "Footwear", emoji: "👟" },
+  { name: "Accessories", emoji: "⌚" },
+  { name: "Lifestyle", emoji: "🎒" },
 ];
 
 function Home() {
   return (
-    <main className="home">
+    <div className="home-page">
       <section className="hero">
         <div className="hero-content">
-          <span className="hero-label">
-            YOUR EVERYDAY SHOPPING DESTINATION
-          </span>
-
+          <span className="hero-label">✨ YOUR EVERYDAY SHOPPING DESTINATION</span>
           <h1>
-            Discover Products
+            Discover products
             <br />
-            You'll <span>Love.</span>
+            <span>you’ll love.</span>
           </h1>
-
           <p>
-            Explore our collection of quality products
-            at prices you'll love.
+            Explore the latest trends, everyday essentials, and exciting
+            deals—all in one place.
           </p>
 
-          <a href="/products" className="shop-button">
-            Shop Now →
-          </a>
-        </div>
+          <div className="hero-actions">
+            <a href="/products" className="btn-primary">
+              Shop Now <span>→</span>
+            </a>
+            <a href="#categories" className="btn-secondary">
+              Explore Categories
+            </a>
+          </div>
 
-        <div className="hero-image">
-          <img
-            src={products[0].image}
-            alt="Wireless headphones"
-          />
-        </div>
-      </section>
-
-      <section className="categories-section">
-        <div className="section-heading">
-          <div>
-            <span className="section-label">EXPLORE</span>
-            <h2>Shop by Category</h2>
+          <div className="hero-trust">
+            <span>✓ Quality Products</span>
+            <span>✓ Secure Shopping</span>
+            <span>✓ Great Deals</span>
           </div>
         </div>
 
-        <div className="category-list">
-          {categories.map((category) => (
-            <div className="category-item" key={category}>
-              {category}
+        <div className="hero-visual">
+          <div className="hero-circle">
+            <span className="hero-emoji">🛍️</span>
+          </div>
+          <div className="floating-card floating-card-top">
+            <span>🔥</span>
+            <div>
+              <strong>Hot Deals</strong>
+              <small>Up to 50% off</small>
             </div>
+          </div>
+          <div className="floating-card floating-card-bottom">
+            <span>🚚</span>
+            <div>
+              <strong>Easy Shopping</strong>
+              <small>Shop from anywhere</small>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="benefits">
+        <div><span>🚚</span><div><strong>Fast Delivery</strong><small>Convenient delivery</small></div></div>
+        <div><span>🔒</span><div><strong>Secure Payments</strong><small>Shop with confidence</small></div></div>
+        <div><span>↩️</span><div><strong>Easy Returns</strong><small>Hassle-free process</small></div></div>
+        <div><span>💬</span><div><strong>Customer Support</strong><small>We're here to help</small></div></div>
+      </section>
+
+      <section className="home-section" id="categories">
+        <div className="section-heading">
+          <div>
+            <span className="section-kicker">SHOP BY CATEGORY</span>
+            <h2>Find your favorites</h2>
+            <p>Explore our collection by category.</p>
+          </div>
+          <a href="/products" className="text-link">View all products →</a>
+        </div>
+
+        <div className="category-grid">
+          {categories.map((category) => (
+            <a href="/products" className="category-card" key={category.name}>
+              <span className="category-emoji">{category.emoji}</span>
+              <strong>{category.name}</strong>
+              <span className="category-arrow">↗</span>
+            </a>
           ))}
         </div>
       </section>
 
-      <section className="products-section">
+      <section className="home-section featured-section">
         <div className="section-heading">
           <div>
-            <span className="section-label">OUR COLLECTION</span>
-            <h2>Featured Products</h2>
+            <span className="section-kicker">HANDPICKED FOR YOU</span>
+            <h2>Featured products</h2>
+            <p>Popular picks you might love.</p>
           </div>
-
-          <a href="/products" className="view-all">
-            View all →
-          </a>
+          <a href="/products" className="text-link">Explore all →</a>
         </div>
 
         <div className="product-grid">
           {products.map((product) => (
             <article className="product-card" key={product.id}>
               <div className="product-image">
-                <img src={product.image} alt={product.name} />
+                <span className="product-tag">{product.tag}</span>
+                <span className="product-emoji">{product.emoji}</span>
+                <button
+                  className="wishlist-button"
+                  aria-label={`Add ${product.name} to wishlist`}
+                  type="button"
+                >
+                  ♡
+                </button>
               </div>
 
               <div className="product-info">
-                <span className="product-category">
-                  {product.category}
-                </span>
-
+                <span className="product-category">{product.category}</span>
                 <h3>{product.name}</h3>
-
-                <div className="product-bottom">
-                  <span className="product-price">
-                    ₹{product.price.toLocaleString("en-IN")}
-                  </span>
-
-                  <a
-                    href={`/product/${product.id}`}
-                    className="view-product"
-                  >
-                    View →
-                  </a>
+                <div className="product-rating">★★★★★ <span>(4.8)</span></div>
+                <div className="product-price">
+                  <strong>{product.price}</strong>
+                  <del>{product.oldPrice}</del>
                 </div>
+                <a href="/products" className="product-button">View Product</a>
               </div>
             </article>
           ))}
         </div>
       </section>
 
-              
-{/* Shopping Benefits */}
-<section className="benefits-section">
-  <div className="benefit">
-    <span className="benefit-icon">🚚</span>
-    <div>
-      <h3>Free Shipping</h3>
-      <p>On orders above ₹999</p>
+      <section className="offer-banner">
+        <div>
+          <span className="section-kicker">A LITTLE SOMETHING FOR YOU</span>
+          <h2>Good finds. Great prices.</h2>
+          <p>Explore the collection and discover something new today.</p>
+          <a href="/products" className="offer-button">Explore Deals →</a>
+        </div>
+        <div className="offer-art">🎁</div>
+      </section>
+
+      <section className="home-section why-section">
+        <div className="section-heading centered-heading">
+          <div>
+            <span className="section-kicker">WHY SHOP WITH US?</span>
+            <h2>Shopping made simple</h2>
+            <p>A smooth and convenient shopping experience, from start to finish.</p>
+          </div>
+        </div>
+        <div className="why-grid">
+          <div className="why-card"><span>🧡</span><h3>Carefully Selected</h3><p>Discover products chosen with your everyday needs in mind.</p></div>
+          <div className="why-card"><span>💳</span><h3>Easy Checkout</h3><p>Enjoy a simple shopping journey with a clear checkout experience.</p></div>
+          <div className="why-card"><span>✨</span><h3>Fresh Finds</h3><p>Explore new styles, useful essentials, and exciting discoveries.</p></div>
+        </div>
+      </section>
+
+      <footer className="home-footer">
+        <div>
+          <a href="/" className="footer-brand"> Mutli<br></br>Ecommerce-<span className="text-[#91d3a9]">Platform</span></a>
+          <p>Your everyday destination for things you love.</p>
+        </div>
+        <div className="footer-links">
+          <a href="/products">Shop</a>
+          <a href="/login">My Account</a>
+          <a href="/cart">Shopping Cart</a>
+        </div>
+        <small>
+           <span>© 2026 Multi<br></br>Ecommerce-Platform .Demo storefront.</span>
+        </small>
+        
+      </footer>
     </div>
-  </div>
-
-  <div className="benefit">
-    <span className="benefit-icon">🔒</span>
-    <div>
-      <h3>Secure Payments</h3>
-      <p>Safe and secure checkout</p>
-    </div>
-  </div>
-
-  <div className="benefit">
-    <span className="benefit-icon">↩️</span>
-    <div>
-      <h3>Easy Returns</h3>
-      <p>Hassle-free return process</p>
-    </div>
-  </div>
-
-  <div className="benefit">
-    <span className="benefit-icon">💬</span>
-    <div>
-      <h3>Customer Support</h3>
-      <p>We're here to help</p>
-    </div>
-  </div>
-</section>
-
-{/* Special Offer Banner */}
-<section className="offer-banner">
-  <div className="offer-content">
-    <span className="section-label">LIMITED TIME OFFER</span>
-    <h2>Upgrade Your Everyday.</h2>
-    <p>
-      Explore exciting finds across our collection.
-      Your next favorite product is waiting.
-    </p>
-    <a href="/products" className="shop-button">
-      Explore Collection →
-    </a>
-  </div>
-
-  <div className="offer-emoji">🛍️</div>
-</section>
-
-{/* Customer Reviews */}
-<section className="reviews-section">
-  <div className="section-heading">
-    <div>
-      <span className="section-label">CUSTOMER LOVE</span>
-      <h2>What Shoppers Say</h2>
-    </div>
-  </div>
-
-  <div className="reviews-grid">
-    <article className="review-card">
-      <div className="review-stars">★★★★★</div>
-      <p>
-        "The website is easy to use and the product
-        collection looks amazing!"
-      </p>
-      <h4>Rahul S.</h4>
-      <span>Sample customer review</span>
-    </article>
-
-    <article className="review-card">
-      <div className="review-stars">★★★★★</div>
-      <p>
-        "Loved the clean design and how easy it is
-        to explore different products."
-      </p>
-      <h4>Priya K.</h4>
-      <span>Sample customer review</span>
-    </article>
-
-    <article className="review-card">
-      <div className="review-stars">★★★★★</div>
-      <p>
-        "A smooth shopping experience with
-        everything organized in one place."
-      </p>
-      <h4>Arjun M.</h4>
-      <span>Sample customer review</span>
-    </article>
-  </div>
-</section>
-
-{/* Newsletter */}
-<section className="newsletter-section">
-  <span className="section-label">STAY IN THE LOOP</span>
-  <h2>Get the latest updates</h2>
-  <p>
-    Discover new arrivals, shopping inspiration
-    and exclusive offers.
-  </p>
-  <div className="newsletter-note">
-    Subscribe feature coming soon.
-  </div>
-</section>
-
-{/* Footer */}
-<footer className="home-footer">
-  <div className="footer-brand">
-    <h2>E-Shop</h2>
-    <p>Your everyday shopping destination.</p>
-  </div>
-
-  <div className="footer-links">
-    <a href="/">Home</a>
-    <a href="/products">Shop</a>
-    <a href="/login">Login</a>
-    <a href="/register">Create Account</a>
-    <a href="/cart">Cart</a>
-  </div>
-
-  <div className="footer-bottom">
-    © 2026 E-Shop. All rights reserved.
-  </div>
-</footer>
-
-
-
-
-
-
-    </main>
   );
 }
 
