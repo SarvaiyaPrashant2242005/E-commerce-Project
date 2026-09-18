@@ -1,6 +1,6 @@
 function Home() {
   return (
-    <h1>Welcome to E-Commerce Platform</h1>
+    <h1 >Welcome to E-Commerce Platform</h1>
   );
 }
 
