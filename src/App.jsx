@@ -36,12 +36,12 @@ function App() {
         <Route path="/order-success" element={<OrderSuccess />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-         <Route path="*" element={<NotFound />} />
+        <Route path="*" element={<NotFound />} />
       </Route>
 
       {/* ---------- Vendor Routes (role: vendor) ---------- */}
 
-      
+
       <Route element={<ProtectedRoute roles={["vendor"]} />}>
         <Route path="/vendor" element={<DashboardLayout role="vendor" />}>
           <Route index element={<VendorDashboard />} />
